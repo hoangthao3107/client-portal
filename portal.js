@@ -160,6 +160,7 @@ function showScreen(name) {
     renderApplicationSignature();
     applyThreadAnchors();
     renderThreadList();
+    setCommentsOpen(window.matchMedia('(min-width: 791px)').matches);
   }
 }
 
@@ -950,11 +951,6 @@ function renderApplicationSignature() {
   $('application-signed-badge').hidden = !signed;
   $('signature-field-status').textContent = signed ? 'Signed' : 'Signature required';
   $('signature-field-status').className = `badge ${signed ? 'badge-green' : 'badge-neutral'}`;
-  $('application-sidebar-status').textContent = signed ? 'Signed' : 'Signature requested';
-  $('application-sidebar-status').className = `badge ${signed ? 'badge-green' : 'badge-neutral'}`;
-  $('application-sidebar-message').textContent = signed
-    ? `Signed by ${signedName} on ${signedDate}. Your signed copy is ready to download.`
-    : 'Review the application, then add your signature in the marked field.';
   $('application-signature-placeholder').hidden = signed;
   $('application-signature-value').hidden = !signed;
   $('application-signature-value').className = `application-signature-value signature-style-${signedSignatureStyle}`;
@@ -983,7 +979,6 @@ $('application-sign-action').addEventListener('click', () => {
 function closeSignatureDialog() { $('signature-dialog').close(); }
 $('close-signature-dialog').addEventListener('click', closeSignatureDialog);
 $('cancel-signature-dialog').addEventListener('click', closeSignatureDialog);
-$('jump-to-signature').addEventListener('click', () => $('application-signature-block').scrollIntoView({ block: 'center', behavior: 'smooth' }));
 
 function setSignatureMethod(method) {
   signatureMethod = method;
