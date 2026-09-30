@@ -609,6 +609,7 @@ html[data-theme="dark"] .signature-dialog{background:var(--bg-primary);color:var
 :is(#screen-document,#screen-application) .comments-toggle.is-active:hover{background:#efeeed;border-color:#e7ebee;color:var(--text-primary)}
 :is(#screen-document,#screen-application) .comments-toggle svg{width:16px;height:16px}
 body:not(.panel-open) #screen-document .document-layout{grid-template-columns:minmax(0,1fr) 0}
+body:not(.panel-open) #screen-application .application-layout{grid-template-columns:minmax(0,1fr) 0}
 body.panel-open #screen-application .application-layout{grid-template-columns:minmax(0,1fr) 356px}
 body:not(.panel-open) :is(#screen-document,#screen-application) .comments-panel{display:none}
 html[data-theme="dark"] :is(#screen-document,#screen-application) .comments-toggle{background:var(--bg-primary);color:var(--text-secondary)}
